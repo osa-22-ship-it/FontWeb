@@ -34,7 +34,6 @@ h1 {
       
     }
 
-    <style>
     /* Global box model */
     *,
     *:before,
@@ -222,11 +221,7 @@ h1 {
         grid-column: 4 / 5;
       }
     }
-  </style>
-</head>
-    }
-    
-    <style>
+
     body, h1 {
       font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
     }
@@ -244,30 +239,36 @@ h1 {
       margin-bottom: 12px;
     }
 
-    /* Full background watermark image */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url(https://i.postimg.cc/W4bg9Xxk/North-East-Demi-Bold-Poster-scaled.jpg); /* 🔁 Replace this with your watermark image URL */
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      opacity: 0.1; /* Adjust for watermark effect */
-      z-index: -1;
-    }
-  </style>
-</head>
+/* ----------------------------- */
+/* BACKGROUND IMAGE (DIAGONAL SCROLL) */
+/* ----------------------------- */
 
-* {
-  -webkit-transition-property: all;
-  -webkit-transition-duration: 0.2s;
-  -moz-transition-property: all;
-  -moz-transition-timing-function: cubic-bezier(100, 50, 21, 6);
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(https://i.postimg.cc/W4bg9Xxk/North-East-Demi-Bold-Poster-scaled.jpg);
+  background-repeat: repeat;
+  background-size: cover;
+  background-position: 0 0;
+  opacity: 0.1;
+  z-index: -1;
+  animation: scrollBackgroundDiagonal 60s linear infinite; /* same gentle speed */
 }
+
+/* Keyframes for diagonal scroll movement */
+@keyframes scrollBackgroundDiagonal {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 100%;
+  }
+}
+
 
 body {
   background-color: #000;
@@ -315,4 +316,156 @@ h1 {
 
 .title-wrapper h1 {
   opacity: 0.6; /* Adjust transparency here (1 = fully opaque, 0 = fully transparent) */
+}
+
+/* Container for the spinning letter */
+.spinning-letter-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.spinning-letter-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+/* Red circle container */
+.circle-border {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 500px;
+  border: 25px solid red; /* Red open circle */
+  border-radius: 50%;
+  opacity: 0.8;
+  box-shadow: 0 0 40px rgba(255, 0, 0, 0.4);
+}
+
+/* Spinning Aa */
+#LetterA {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 300px;
+  display: inline-block;
+  animation: spin 2s linear infinite;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Wrapper centers everything */
+.spinning-letter-wrapper {
+  display: flex;
+  flex-direction: column; /* Stack circle and label vertically */
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  text-align: center;
+}
+
+/* Red circle border */
+.circle-border {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 500px;
+  border: 25px solid red; /* Bold red open circle */
+  border-radius: 50%;
+  opacity: 0.8;
+  box-shadow: 0 0 40px rgba(255, 0, 0, 0.4);
+}
+
+/* Spinning Aa */
+#LetterA {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 300px;
+  display: inline-block;
+  animation: spin 2s linear infinite;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Text label underneath the circle */
+.circle-label {
+  margin-top: 30px; /* Space below circle */
+  color: red;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.spinning-letter-link:hover #LetterA {
+  animation-play-state: paused;
+  cursor: pointer;
+  
+}
+
+.spinning-letter-link {
+  text-decoration: none; /* removes underline from the text */
+}
+
+
+/* Spin animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Popup modal default hidden */
+.popup-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background-color: #111;
+  color: white;
+  border: 3px solid red;
+  border-radius: 15px;
+  padding: 30px;
+  z-index: 9999;
+  display: none;
+  box-shadow: 0 0 50px rgba(255,0,0,0.7);
+}
+
+/* Show popup when targeted */
+.popup-modal:target {
+  display: block;
+  animation: fadeInPopup 0.3s ease;
+}
+
+/* Close button */
+.popup-modal .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  color: red;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Optional: fade-in animation */
+@keyframes fadeInPopup {
+  from {opacity: 0; transform: translate(-50%, -45%);}
+  to {opacity: 1; transform: translate(-50%, -50%);}
 }
