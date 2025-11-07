@@ -1,232 +1,305 @@
+/* ----------------------------- */
+/* GLOBAL SETTINGS               */
+/* ----------------------------- */
+
 html {
-scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-background-color: red;
-margin: 0;
-padding: 0;
-min-height: 100vh;
-display: flex;
-flex-direction: column;
-align-items: center;
-font-family: Arial, sans-serif;
-position: relative;
-padding-bottom: 200px; /* Leave space at bottom for spinning Aa */
+  background-color: red;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  position: relative;
 }
 
 body::before {
-content: "";
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background-image: url(https://i.postimg.cc/W4bg9Xxk/North-East-Demi-Bold-Poster-scaled.jpg);
-background-repeat: no-repeat;
-background-position: center;
-background-size: cover;
-opacity: 0.2;
-z-index: -1;
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(https://i.postimg.cc/W4bg9Xxk/North-East-Demi-Bold-Poster-scaled.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.2;
+  z-index: -1;
 }
 
-/* Hide radio inputs visually */
-input[type="radio"] {
-position: absolute;
-opacity: 0;
-pointer-events: none;
+/* ----------------------------- */
+/* NAVIGATION                    */
+/* ----------------------------- */
+
+.nav-space {
+  height: 60px;
 }
 
-/* Carousel Container */
-main#carousel {
-width: 100vw;
-height: 700px; /* Taller to fit larger cards */
-display: flex;
-align-items: center;
-justify-content: center;
-overflow: hidden;
-transform-style: preserve-3d;
-perspective: 800px;
---items: 5;
---middle: 3;
---position: 1;
-pointer-events: none;
-margin-bottom: 60px;
-min-height: 80vh;
+.main-nav {
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-/* Carousel Items */
-div.item {
-position: absolute;
-width: 500px; /* Wider cards */
-height: 600px; /* Longer cards */
---r: calc(var(--position) - var(--offset));
---abs: max(calc(var(--r) * -1), var(--r));
-transition: all 0.3s ease;
-transform: rotateY(calc(-10deg * var(--r))) translateX(calc(-450px * var(--r)));
-z-index: calc((var(--position) - var(--abs)));
-display: flex;
-flex-direction: column;
-border-radius: 30px; /* Rounded corners */
-overflow: hidden;
-box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); /* Adds depth */
-}
-
-/* Original colors */
-div.item:nth-of-type(1) { --offset: 1; background-color: black; }
-div.item:nth-of-type(2) { --offset: 2; background-color: silver; }
-div.item:nth-of-type(3) { --offset: 3; background-color: white; }
-div.item:nth-of-type(4) { --offset: 4; background-color: black; }
-div.item:nth-of-type(5) { --offset: 5; background-color: silver; }
-
-/* Optional text area inside cards */
-.card-text {
-flex: 1;
-padding: 20px;
-}
-
-/* Navigation Buttons */
-.radio-buttons {
-display: flex;
-justify-content: center;
-gap: 10px;
-margin-bottom: 20px;
-}
-
-.radio-buttons label {
-width: 18px;
-height: 18px;
-border: 2px solid white;
-border-radius: 50%;
-cursor: pointer;
-display: inline-block;
-background-color: transparent;
-transition: background-color 0.3s ease;
-}
-
-#pos1:checked ~ .radio-buttons label[for="pos1"],
-#pos2:checked ~ .radio-buttons label[for="pos2"],
-#pos3:checked ~ .radio-buttons label[for="pos3"],
-#pos4:checked ~ .radio-buttons label[for="pos4"],
-#pos5:checked ~ .radio-buttons label[for="pos5"] {
-background-color: white;
-}
-
-/* Carousel Positioning */
-#pos1:checked ~ main#carousel { --position: 1; }
-#pos2:checked ~ main#carousel { --position: 2; }
-#pos3:checked ~ main#carousel { --position: 3; }
-#pos4:checked ~ main#carousel { --position: 4; }
-#pos5:checked ~ main#carousel { --position: 5; }
-
-/* Navigation Bar Buttons */
 .btn {
-color: #999;
-background: rgba(0, 0, 0, 1);
-padding: 10px 20px;
-font-size: 12px;
-text-decoration: none;
-letter-spacing: 2px;
-text-transform: uppercase;
-margin: 0 10px;
-font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  color: #999;
+  background: rgba(0, 0, 0, 1);
+  padding: 10px 20px;
+  font-size: 12px;
+  text-decoration: none;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0 10px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
 .btn:hover {
-background: #fff;
-color: #1b1b1b;
-padding: 20px 20px;
+  background: #fff;
+  color: #1b1b1b;
+  padding: 20px 20px;
 }
 
-.nav-space {
-height: 60px;
-}
-
-/* Spinning Letter Section */
-.spinning-letter-link {
-color: white;
-text-decoration: none;
-display: inline-block;
-}
-
-#LetterA {
-font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-font-size: 400px;
-display: inline-block;
-animation: spin 2s linear infinite;
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
-}
-
-@keyframes spin {
-from {
-transform: rotate(0deg);
-}
-to {
-transform: rotate(360deg);
-}
-}
-
-.spinning-letter-link:hover #LetterA {
-animation-play-state: paused;
-cursor: pointer;
-}
-
-.spinning-letter-wrapper {
-display: flex;
-justify-content: center;
-align-items: center;
-margin-top: 200px;
-margin-bottom: 100px;
-}
-
-/* Profile Icon + Text Centered in First Carousel Card */
-.item:first-of-type .card-content {
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-height: 100%;
-text-align: center;
-color: white;
-}
-
-.profile-icon {
-width: 200px; /* adjust size as needed */
-height: 175px;
-object-fit: contain;
-filter: brightness(0) invert(1); /* makes sure it's white even if the source icon is black */
-margin-bottom: 20px;
-}
-
-.profile-text {
-font-size: 24px;
-font-family: 'Lato', sans-serif;
-color: white;
-margin: 0;
-}
-
-.letter-icon {
-width: 200px; /* adjust size as needed */
-height: 175px;
-object-fit: contain;
-justify-self: center;
-margin-bottom: 20px;
-}
-
-.letter-text {
-font-size: 24px;
-font-family: 'Lato', sans-serif;
-color: black;
-margin: 0;
-}
-
-.item .card-content {
+/* Tag Buttons (under CoFo Sans Mono Variable) */
+.about-tags {
   display: flex;
-  align-items: center;   /* centers vertically */
-  justify-content: center; /* centers horizontally */
-  height: 100%; /* ensures it fills the card */
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
 }
+
+.tag-btn {
+  color: #999;
+  background: rgba(0, 0, 0, 1);
+  padding: 6px 12px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.tag-btn:hover {
+  background: #fff;
+  color: #1b1b1b;
+}
+
+
+/* ----------------------------- */
+/* ABOUT PAGE LAYOUT             */
+/* ----------------------------- */
+
+.about-container {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 100px auto;
+  align-items: start;
+}
+
+.about-title {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 48px;
+  letter-spacing: 1px;
+  color: white;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.about-subhead {
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+  color: white;
+  margin: 10px 0 5px;
+  text-align: left;
+}
+
+.about-subtag {
+  font-family: 'Lato', sans-serif;
+  color: #ccc;
+  font-size: 14px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+/* The input box itself (replaces preview-input entirely) */
+.preview-box {
+  width: 100%;
+  height: 260px;
+  background-color: white;
+  border: 2px solid black;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 80px;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  outline: none;
+  caret-color: black;
+  background-clip: padding-box;
+}
+
+/* Placeholder styling */
+.preview-box::placeholder {
+  color: rgba(0, 0, 0, 0.3);
+  font-weight: normal;
+}
+
+/* On focus */
+.preview-box:focus {
+  border-color: black;
+  background-color: white;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .preview-box {
+    height: 200px;
+    font-size: 50px;
+  }
+}
+
+
+.preview-text {
+  font-family: 'Lato', sans-serif;
+  font-size: 80px;
+  color: black;
+  font-weight: bold;
+  margin: 0;
+}
+
+.about-right p {
+  color: white;
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* Hide actual radio buttons */
+.about-tags input[type="radio"] {
+  display: none;
+}
+
+/* Tag button styling */
+.about-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.tag-btn {
+  background: rgba(0, 0, 0, 1);
+  color: #999;
+  padding: 6px 12px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tag-btn:hover {
+  background: #fff;
+  color: #1b1b1b;
+}
+
+/* Highlight selected button */
+.about-tags input[type="radio"]:checked + .tag-btn {
+  background: #fff;
+  color: #1b1b1b;
+}
+
+/* Preview input box */
+.preview-box {
+  width: 100%;
+  height: 260px;
+  background-color: white;
+  border: 2px solid white;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 80px;
+  font-weight: normal;
+  color: black;
+  text-align: center;
+  outline: none;
+  caret-color: black;
+  margin-top: 20px;
+}
+
+/* Change preview style based on selected button */
+#regular:checked ~ .preview-box {
+  font-style: normal;
+  font-weight: normal;
+}
+
+#italic:checked ~ .preview-box {
+  font-style: italic;
+  font-weight: normal;
+}
+
+#bold:checked ~ .preview-box {
+  font-style: normal;
+  font-weight: bold;
+}
+
+/* Subtle bold style for Impact preview */
+#bold:checked ~ .preview-box {
+  font-style: normal;
+  font-weight: bold;
+  -webkit-text-stroke: 3.1px #999; /* very subtle outline for extra weight */
+  color: black;
+}
+
+
+ 
+/* ----------------------------- */
+/* RESPONSIVE DESIGN             */
+/* ----------------------------- */
+
+@media (max-width: 900px) {
+  .about-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .about-title,
+  .about-subhead,
+  .about-subtag,
+  .about-right p {
+    text-align: center;
+  }
+
+  .preview-box {
+    height: 200px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
