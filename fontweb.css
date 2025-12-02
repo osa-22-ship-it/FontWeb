@@ -262,7 +262,7 @@ header:after { content: ''; display: block; height: 20px; width: auto; }
   -webkit-text-stroke: 2.5px white;
   text-align: center;
   position: absolute;
-  top: 555px;
+  top: 575px;
   left: 50%;
   transform: translateX(-50%);
   opacity: 1;
@@ -343,5 +343,6 @@ header:after { content: ''; display: block; height: 20px; width: auto; }
 .wrapper {
   margin-bottom: 100px;
 }
+
 
 
