@@ -1,71 +1,304 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ABOUT</title>
 
-  <!-- Preload Background -->
-  <link rel="preload" as="image" href="https://i.postimg.cc/W4bg9Xxk/North-East-Demi-Bold-Poster-scaled.jpg">
-
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 
   <!-- External CSS -->
-  <link rel="stylesheet" href="NewStyles.css" />
+  <link rel="stylesheet" href="NewStyles.css"/>
+  <style>
+    /* Fade classes */
+    .fade-in { opacity: 1; transition: opacity 0.6s ease; }
+    .fade-out { opacity: 0; transition: opacity 0.6s ease; }
+
+    /* Tile new content container */
+    .tile-new-content {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      opacity: 0;
+      pointer-events: none;
+      box-sizing: border-box;
+    }
+
+    /* Only tile 1 horizontal padding */
+    .tile-1 .tile-new-content {
+      padding-left: 0.5in;
+      padding-right: 0.5in;
+    }
+
+    /* Paragraph inside tile 1 */
+    .tile-1 .tile-new-content p {
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      line-height: 1.5;
+      color: black;
+    }
+
+    /* "Lorem" words inside tile 2 */
+    .tile-2 .tile-new-content {
+      pointer-events: auto;
+      opacity: 1;
+    }
+
+    .tile-2 .tile-new-content .lorem-word {
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      margin: 5px 0;
+    }
+    .tile-2 .tile-new-content .lorem-regular { font-weight: normal; font-size: 36px; }
+    .tile-2 .tile-new-content .lorem-italic { font-weight: normal; font-size: 48px; font-style: italic; }
+    .tile-2 .tile-new-content .lorem-bold { font-weight: bold; font-size: 60px; }
+  </style>
 </head>
 
 <body>
 
-  <!-- Navigation bar -->
-  <div class="nav-space"></div>
-  <nav class="main-nav">
-    <a href="index.html" class="btn">Home</a>
-    <a href="about.html" class="btn">About</a>
-    <a href="#" class="btn">Lorem</a>
-  </nav>
+<!-- Background Waves -->
+<div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
 
-  <section class="about-container">
-    
-    <!-- LEFT COLUMN -->
-    <div class="about-left">
-      <h1 class="about-title">IMPACT REGULAR</h1>
-      <p class="about-subhead">Weights/Styles</p>
+<!-- Navigation bar -->
+<div class="nav-space"></div>
+<nav class="main-nav">
+  <a href="fontweb.html" class="btn">Home</a>
+  <a href="about.html" class="btn">About</a>
+  <a href="lorem.html" class="btn">More</a>
+</nav>
 
-      <div class="about-tags">
-        <!-- Hidden radio buttons -->
-        <input type="radio" name="fontstyle" id="regular" checked>
-        <label for="regular" class="tag-btn">Regular</label>
+<!-- About Section -->
+<section class="about-container">
+ 
+  <!-- Left Column -->
+  <div class="about-left">
+    <h1 class="about-title">TYPE TESTER</h1>
+    <p class="about-subhead">Weights/Styles</p>
 
-        <input type="radio" name="fontstyle" id="italic">
-        <label for="italic" class="tag-btn">Italic</label>
+    <div class="about-tags">
+      <input type="radio" name="fontstyle" id="regular" checked>
+      <label for="regular" class="tag-btn">Regular</label>
 
-        <input type="radio" name="fontstyle" id="bold">
-        <label for="bold" class="tag-btn">Bold</label>
+      <input type="radio" name="fontstyle" id="italic">
+      <label for="italic" class="tag-btn">Italic</label>
 
-        <!-- Preview box -->
-        <input type="text" class="preview-box" placeholder="Type a word..." />
+      <input type="radio" name="fontstyle" id="bold">
+      <label for="bold" class="tag-btn">Bold</label>
+
+      <input type="text" class="preview-box" placeholder="Type a word..." />
+    </div>
+
+    <h2 class="accordion-subtitle">BEHIND THE TYPEFACE</h2>
+
+    <div class="accordion">
+      <div class="accordion-item">
+        <button class="accordion-btn">ORIGIN</button>
+        <div class="accordion-content">
+          <p>Impact originated in the 1960s as a bold, condensed typeface designed for strong visual presence in posters and headlines. Its thick strokes, tight spacing, and compact structure were created to maximize impact in limited space, making it a popular choice for attention-grabbing print and later digital use.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn">GEOFFREY LEE</button>
+        <div class="accordion-content">
+          <p>Geoffrey Lee was a British designer active during the mid-20th century, known for his work in bold display typography. He is the sole originator of the impact font. His designs focused on clarity, strong structure, and visual force, reflecting the needs of advertising and print culture of the time. Although not widely profiled, his work left a lasting impact on modern headline typography.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn">TYPE FOUNDRY</button>
+        <div class="accordion-content">
+          <p>Stephenson Blake was a longtime British type foundry that commissioned the creation of Impact in the 1960s. They sought a powerful, condensed display typeface suited for modern advertising, and supported its development to meet the demand for strong, space-efficient headline typography. Their backing helped bring the design into widespread use and ensured its place in mid-20th-century print culture.</p>
+        </div>
       </div>
     </div>
+  </div>
 
-    <!-- RIGHT COLUMN -->
-    <div class="about-right">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <!-- Right Column -->
+  <div class="about-right">
+    <h3 class="small-title">WEIGHT AND STYLE OVERVIEW</h3>
+    <p>The Impact font includes regular, italic, and bold styles, offering versatility while keeping its strong, condensed look. The regular weight provides the classic heavy sans-serif appearance, making text prominent without extra emphasis. The italic style slants the letters for emphasis or dynamic effect, maintaining the font’s dense, striking character. The bold style increases visual weight further, ideal for headlines or attention-grabbing text. Together, these weights and styles give designers flexibility while preserving Impact’s iconic, impactful presence.</p>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <h3 class="small-title mt-large">INDUSTRIAL AND GROTESQUE</h3>
+    <p>The Impact font belongs to the industrial and grotesque styles, known for their bold, powerful, and functional design. Its heavy, compressed letterforms and strong presence clearly place it within these traditions, emphasizing strength and attention-grabbing visuals. Impact’s appearance reflects the practical and no-nonsense character that both industrial and grotesque styles are celebrated for, giving it a distinct, forceful personality in typography.</p>
 
-      <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br />
-      
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-    </div>
+    <p>The industrial style focuses on mechanical precision, sturdy construction, and efficiency, often conveying a utilitarian or engineered look. It prioritizes functionality and boldness over ornamentation. The grotesque style, on the other hand, emphasizes simple, uniform shapes with minimal contrast, creating a clean and modern aesthetic. By combining these qualities, Impact achieves a dense, striking appearance that is both strong and visually clear. </p>
+  </div>
+</section>
 
-  </section>
+<!-- Clean 2x2 White Grid -->
+<section class="about-grid">
+  <!-- Tile 1 -->
+  <div class="white-tile tile-1">
+    <span class="about-number num-1">1</span>
+    <span class="tile-title">BODY TEXT</span>
+    <div class="tile-new-content"></div>
+  </div>
+
+  <!-- Tile 2 -->
+  <div class="white-tile tile-2">
+    <span class="about-number num-2">2</span>
+    <span class="tile-title">TITLES/HEADLINES</span>
+    <div class="tile-new-content"></div>
+  </div>
+
+  <!-- Tile 3 (updated with content container) -->
+  <div class="white-tile tile-3">
+    <span class="about-number num-3">3</span>
+    <span class="tile-title">EXPRESSIVE USE</span>
+    <div class="tile-new-content"></div>
+  </div>
+
+  <!-- Tile 4 -->
+  <div class="white-tile">
+    <span class="about-number num-4">4</span>
+    <span class="tile-title">INSPIRED FONTS</span>
+  </div>
+</section>
+
+<script>
+// Select all white tiles
+const tiles = document.querySelectorAll('.white-tile');
+
+tiles.forEach((tile, index) => {
+  const number = tile.querySelector('.about-number');
+  const title = tile.querySelector('.tile-title');
+  const wrapper = tile.querySelector('.tile-new-content');
+
+  tile.addEventListener('click', () => {
+    const isActive = wrapper.classList.contains('active');
+
+    if (isActive) {
+      // Hide content
+      wrapper.style.opacity = 0;
+      wrapper.style.pointerEvents = 'none';
+      setTimeout(() => {
+        wrapper.innerHTML = '';
+        number.style.display = 'block';
+        title.style.display = 'block';
+        wrapper.classList.remove('active');
+      }, 600);
+    } else {
+      // Show content
+      number.style.display = 'none';
+      title.style.display = 'none';
+      wrapper.innerHTML = '';
+
+      if (index === 0) {
+        // Tile 1: paragraph content
+        const p = document.createElement('p');
+        p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.";
+        wrapper.appendChild(p);
+
+        wrapper.style.display = 'flex';
+        wrapper.style.flexDirection = 'column';
+        wrapper.style.alignItems = 'center';
+        wrapper.style.justifyContent = 'center';
+        wrapper.style.textAlign = 'center';
+      }
+     
+      else if (index === 1) {
+        // Tile 2 content
+        const items = [
+          { word: 'LOREM', weight: '400', size: '36px', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.' },
+          { word: 'LOREM', weight: '600', size: '48px', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.'},
+          { word: 'LOREM', weight: '900', size: '60px', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.'}
+        ];
+
+        wrapper.style.display = 'flex';
+        wrapper.style.flexDirection = 'column';
+        wrapper.style.justifyContent = 'center';
+        wrapper.style.alignItems = 'center';
+        wrapper.style.height = '100%';
+        wrapper.style.width = '100%';
+
+        const innerContainer = document.createElement('div');
+        innerContainer.style.display = 'flex';
+        innerContainer.style.flexDirection = 'column';
+        innerContainer.style.alignItems = 'flex-start';
+        innerContainer.style.textAlign = 'left';
+        innerContainer.style.gap = '15px';
+
+        items.forEach(item => {
+          const container = document.createElement('div');
+
+          const span = document.createElement('span');
+          span.textContent = item.word;
+          span.style.fontFamily = 'Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif';
+          span.style.fontWeight = item.weight;
+          span.style.fontSize = item.size;
+          span.style.display = 'block';
+          container.appendChild(span);
+
+          const smallText = document.createElement('p');
+          smallText.textContent = item.text;
+          smallText.style.fontFamily = 'lato, sans-serif';
+          smallText.style.fontWeight = item.weight;
+          smallText.style.fontSize = '14px';
+          smallText.style.margin = '5px 0 0 0';
+          container.appendChild(smallText);
+
+          innerContainer.appendChild(container);
+        });
+
+        wrapper.appendChild(innerContainer);
+      }
+     
+      else if (index === 2) {
+        // TILE 3 — SHOW IMAGE
+        const img = document.createElement('img');
+        img.src = "https://i.postimg.cc/66zyq1Hw/537ed060-8490-4ffb-a319-d84534380b21.png";  // <-- Update path if needed
+        img.alt = "Impact Image";
+        img.style.width = "80%";
+        img.style.height = "auto";
+
+        wrapper.appendChild(img);
+
+        wrapper.style.display = "flex";
+        wrapper.style.flexDirection = "column";
+        wrapper.style.alignItems = "center";
+        wrapper.style.justifyContent = "center";
+      }
+
+      // Show new content
+      wrapper.style.opacity = 1;
+      wrapper.style.pointerEvents = 'auto';
+      wrapper.classList.add('active');
+    }
+  });
+});
+
+// Accordion functionality
+const accordionBtns = document.querySelectorAll('.accordion-btn');
+
+accordionBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const content = btn.nextElementSibling;
+    const isActive = content.classList.contains('active');
+
+    if (isActive) {
+      content.classList.remove('active');
+      btn.classList.remove('active');
+    } else {
+      accordionBtns.forEach(b => {
+        b.classList.remove('active');
+        b.nextElementSibling.classList.remove('active');
+      });
+      content.classList.add('active');
+      btn.classList.add('active');
+    }
+  });
+});
+</script>
 
 </body>
 </html>
-
-
-
-</body>
-</html>
-
