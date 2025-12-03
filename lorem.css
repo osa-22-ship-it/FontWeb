@@ -269,3 +269,114 @@ body, body, html {
 .specimen-row:nth-of-type(3) .text-block {
   text-transform: lowercase;  /* ensures BASIC LOWERCASE is lowercase */
 }
+
+/* Container for the spinning letter */
+.spinning-letter-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.spinning-letter-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+/* Red circle container */
+.circle-border {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 500px;
+  border: 25px solid red; /* Red open circle */
+  border-radius: 50%;
+  opacity: 0.8;
+  box-shadow: 0 0 40px rgba(255, 0, 0, 0.4);
+}
+
+/* Spinning Aa */
+#LetterA {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 300px;
+  display: inline-block;
+  animation: spin 2s linear infinite;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Wrapper centers everything */
+.spinning-letter-wrapper {
+  display: flex;
+  flex-direction: column; /* Stack circle and label vertically */
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  text-align: center;
+}
+
+/* Red circle border */
+.circle-border {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 500px;
+  border: 25px solid red; /* Bold red open circle */
+  border-radius: 50%;
+  opacity: 0.8;
+  box-shadow: 0 0 40px rgba(255, 0, 0, 0.4);
+}
+
+/* Spinning Aa */
+#LetterA {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 300px;
+  display: inline-block;
+  animation: spin 2s linear infinite;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Text label underneath the circle */
+.circle-label {
+  margin-top: 30px; /* Space below circle */
+  color: red;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.spinning-letter-link:hover #LetterA {
+  animation-play-state: paused;
+  cursor: pointer;
+  
+}
+
+.spinning-letter-link {
+  text-decoration: none; /* removes underline from the text */
+}
+
+
+/* Spin animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
