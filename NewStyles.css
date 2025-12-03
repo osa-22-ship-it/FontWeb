@@ -321,7 +321,7 @@ body {
 /* Number variations */
 .num-1 { font-size: 480px; line-height: 775px; left: -120px; top: -250px; color: black; }
 .num-2 { font-size: 85px; height: 130px; width: 130px; line-height: 130px; text-align: center; position: absolute; top: -50px; right: -50px; color: white; background: black; border-radius: 130px; }
-.num-3 { font-size: 200px; line-height: 160px; color: black; right: 450px; bottom: -10px; position: absolute; }
+.num-3 { font-size: 200px; line-height: 160px; color: black; right: 450px; bottom: 70px; position: absolute; }
 .num-4 { font-size: 400px; line-height: 480px; left: 326.7px; bottom: -173px; position: absolute; color: black; font-family: 'Fjalla One', sans-serif;}
 
 /* ============================= */
@@ -428,6 +428,7 @@ body {
   object-fit: contain;
   margin-top: -30px;
 }
+
 
 
 
