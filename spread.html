@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SLIDESHOW</title>
+<link rel="stylesheet" href="spread.css">
+</head>
+<body>
+
+<div class="slideshow-container">
+
+  <!-- Slides -->
+  <div class="slide fade">
+    <img src="https://i.postimg.cc/nrgSgM9v/66d9d33ab54404b9abcad674df935456.jpg" alt="Slide 1">
+  </div>
+
+  <div class="slide fade">
+    <img src="https://i.postimg.cc/g0KZT5LH/0f7f42b91ba1124c2da3fb38fb5d2545.jpg" alt="Slide 2">
+  </div>
+
+  <div class="slide fade">
+    <img src="https://i.postimg.cc/RF6nZ0bn/459d544ace2966ad87aa08bdad32cacf.jpg" alt="Slide 3">
+  </div>
+
+  <div class="slide fade">
+    <img src="https://i.postimg.cc/zB0P8060/f85ba4349e2d7e581a8053d3f4a588d4.jpg" alt="Slide 4">
+  </div>
+
+    <div class="slide fade">
+    <img src="https://i.postimg.cc/KzqZWX7G/FINAL-PRESENTATION-(Projects-1-4).png" alt="Slide 5">
+  </div>
+
+  <div class="slide fade">
+    <img src="https://i.postimg.cc/K4XyXm1K/FINAL-PRESENTATION-(Projects-1-4)-2.png" alt="Slide 6">
+  </div>
+
+
+  <!-- Navigation arrows -->
+  <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+  <a class="next" onclick="changeSlide(1)">&#10095;</a>
+
+</div>
+
+<!-- Optional: Back button -->
+<a href="lorem.html" class="back-btn">Back</a>
+
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function changeSlide(n) {
+  showSlides(slideIndex += n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("slide");
+
+  if (n > slides.length) { slideIndex = 1 }
+  if (n < 1) { slideIndex = slides.length }
+
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+
+  slides[slideIndex - 1].style.display = "block";
+}
+</script>
+
+</body>
+</html>
