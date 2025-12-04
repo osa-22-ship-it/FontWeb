@@ -17,7 +17,7 @@
   <!-- Navigation bar -->
   <div class="nav-space"></div>
   <nav class="main-nav">
-    <a href="index.html" class="btn">Home</a>
+    <a href="fontweb.html" class="btn">Home</a>
     <a href="about.html" class="btn">About</a>
     <a href="lorem.html" class="btn">More</a>
   </nav>
@@ -75,8 +75,7 @@
   <div class="specimen-row">
     <div class="label">TYPE SYMBOLS</div>
     <div class="text-block">
-     @ # % ^ () - + = {} _ []<br>
-     & ! | " / \ ` ~ ; : , * . <>  ?    </div>
+     @ # % ^ () - + = {} _ []<br>& ! | " / \ ` ~ ; : , * . <> ?  </div>
   </div>
 
   <div class="divider"></div>
@@ -93,17 +92,49 @@
 
   </section>
 
-    <!-- Spinning “Aa” with red circle and label underneath -->
-<div class="spinning-letter-wrapper">
-  <a href="letter.html" class="spinning-letter-link">
+ <div class="spinning-letter-wrapper">
+  <a href="#infoModal" class="spinning-letter-link">
     <div class="circle-border">
       <span id="LetterA">Aa</span>
     </div>
-    <p class="circle-label">click to view</p>
+    <p class="circle-label">click me!</p>
   </a>
-
 </div>
 
 
+<div id="infoModal" class="popup-modal">
+  <a href="#" class="close-btn">&times;</a>
+
+  <h2>EXTRAS</h2>
+
+  <p>
+This concludes my type specimen!
+Thanks for exploring Impact—bold, loud, and impossible to ignore. Designed to command attention, it still does exactly what its name promises. To view my favorite applications of the Impact font, click here. 
+  </p>
+
+  <!-- NEW bottom button -->
+  <div class="modal-button-wrapper">
+    <a href="spread.html" class="modal-btn">Open SLIDESHOW</a>
+  </div>
+</div>
+
+<script>
+  const letter = document.getElementById("LetterA");
+
+  // Pause when modal opens
+  window.addEventListener("hashchange", () => {
+    if (location.hash === "#infoModal") {
+      letter.style.animationPlayState = "paused";
+    } else {
+      letter.style.animationPlayState = "running";
+    }
+  });
+</script>
+
+  <!-- Footer -->
+  <footer class="w3-center w3-padding">
+    <p></p>
+  </footer>
 </body>
 </html>
+
