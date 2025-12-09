@@ -94,13 +94,13 @@ body {
 .tag-btn {
   color: #999;
   background: rgba(0, 0, 0, 1);
-  padding: 6px 12px;
-  font-size: 10px;
-  letter-spacing: 1px;
+  padding: 10px 20px;
+  font-size: 12px;
+  text-decoration: none;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  border-radius: 2px;
+  margin: 0 2px;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  cursor: pointer;
   transition: all 0.3s ease;
 }
 
@@ -112,7 +112,7 @@ body {
 /* Highlight selected radio button */
 .about-tags input[type="radio"]:checked + .tag-btn {
   background: #fff;
-  color: #1b1b1b;
+  color: #1b1b1b;  
 }
 
 /* Hide radio buttons */
@@ -218,7 +218,7 @@ body {
 .accordion-content.active {
   display: block;
   max-height: 500px;
-  padding: 15px 30px;
+  padding: 15px 0px;
 }
 
 .accordion-btn {
@@ -302,8 +302,8 @@ body {
 
 .tile-title {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  font-size: 24px;
-  color: black;
+  font-size: 35px;
+  color: rgb(37, 0, 0);
   text-align: center;
   pointer-events: none;
   position: relative;
@@ -317,12 +317,6 @@ body {
   user-select: none;
   z-index: 1;
 }
-
-/* Number variations */
-.num-1 { font-size: 480px; line-height: 775px; left: -120px; top: -250px; color: black; }
-.num-2 { font-size: 85px; height: 130px; width: 130px; line-height: 130px; text-align: center; position: absolute; top: -50px; right: -50px; color: white; background: black; border-radius: 130px; }
-.num-3 { font-size: 250px; line-height: 160px; color: black; right: 400px; bottom: -7px; position: absolute; }
-.num-4 { font-size: 400px; line-height: 480px; left: 326.7px; bottom: -173px; position: absolute; color: black; font-family: 'Fjalla One', sans-serif;}
 
 /* ============================= */
 /* TILE NEW CONTENT & FADE        */
@@ -414,7 +408,6 @@ body {
 /* Body text under each LOREM word */
 .tile-2 .lorem-text {
   font-family: 'Lato', sans-serif;
-  font-size: 16px;
   line-height: 1.5;
   color: black;
 }
@@ -430,22 +423,26 @@ body {
   margin-top: -30px;
 }
 
-.tile-4 .tile-new-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  text-align: center;
-  padding: 20px;
-}
 
-html, body, * {
-  cursor: url("data:image/svg+xml;utf8,\
-<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'>\
-<polygon points='2,2 30,16 18,19 15,30' fill='%23ff2020' stroke='%23000000' stroke-width='2'/>\
-</svg>") 6 4, auto !important;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
