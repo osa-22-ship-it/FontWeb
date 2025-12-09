@@ -262,7 +262,7 @@ header:after { content: ''; display: block; height: 20px; width: auto; }
   -webkit-text-stroke: 2.5px white;
   text-align: center;
   position: absolute;
-  top: calc(50% + 140px);  /* Adjust spacing under the IMPACT loader */
+  top: calc(50% + 165px);  /* Adjust spacing under the IMPACT loader */
   left: 50%;
   transform: translateX(-50%);
   opacity: 1;
@@ -350,6 +350,7 @@ cursor: url("data:image/svg+xml;utf8,\
 <polygon points='2,2 30,16 18,19 15,30' fill='%23ff2020' stroke='%23000000' stroke-width='2'/>\
 </svg>") 6 4, auto !important;
 }
+
 
 
 
