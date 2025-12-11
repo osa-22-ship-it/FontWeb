@@ -351,7 +351,49 @@ cursor: url("data:image/svg+xml;utf8,\
 </svg>") 6 4, auto !important;
 }
 
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, max-content); /* columns shrink to content */
+  gap: 40px;               /* space between tiles */
+  margin: 200px auto 100px; /* 200px from top to sit below nav, 100px bottom spacing */
+  justify-content: center;  /* center entire grid horizontally */
+  align-items: center;      /* center tiles vertically in their row */
+  
+  transform: translateX(30px); /* move the whole grid 20px to the right */
+}
 
+
+.white-tile {
+  width: 450px;             /* fixed tile size for large tiles */
+  aspect-ratio: 1/1;        /* keep square */
+  background: #ffffff;
+  border: 2px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.white-tile:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4);
+}
+
+.white-tile.tile-1 {
+  background: url('https://i.postimg.cc/44Mn30kM/Untitled.png') 
+              center center / cover no-repeat;
+}
+
+
+.white-tile.tile-2 {
+  background: url('https://i.postimg.cc/wxJcgLnp/Untitled.png') 
+              center center / cover no-repeat;
+}
+
+
+
+}
 
 
 
