@@ -51,42 +51,25 @@
 
   <div class="wrapper">
    
-    <figure class="featured-image-1">
-      <img src="https://i.postimg.cc/s203rDYH/aa.png"/>
-    </figure>
-    <a href="#modal1" class="number-1">1</a>
-    <article class="article article-1">
-      <h2>SANS-SERIF TYPEFACE</h2>
-      <p>Lacking serifs, this sans-serif typeface appears clean, modern and highly suitable for contemporary digital design.</p>
-    </article>
+<div class="about-grid">
 
-    <figure class="featured-image-2">
-      <img src="https://i.postimg.cc/qv4mksQN/B.png"/>
-    </figure>
-    <a href="#modal2" class="number-2">2</a>
-    <article class="article article-2">
-      <h2>BOLD STROKE</h2>
-      <p>Ultra-thick strokes show minimal contrast and transitions.</p>
-    </article>
-
-    <figure class="featured-image-3">
-      <img src="https://i.postimg.cc/3rffF0Kc/Untitled.png"/>
-    </figure>
-    <a href="#modal3" class="number-3">3</a>
-    <article class="article article-3">
-      <h2>HIGH X-HEIGHT</h2>
-      <p>The typeface features an unusually tall x-height, where lowercase letters appear significantly larger in proportion to ascenders, creating a compact legible appearance that enhances readability, especially at smaller sizes or in digital contexts where clarity is essential.</p>
-    </article>
-
-    <figure class="featured-image-4">
-      <img src="https://i.postimg.cc/pVDW4vSm/Untitled-4.png"/>
-    </figure>
-    <a href="#modal4" class="number-4">4</a>
-    <article class="article article-4">
-      <h2>TINY INTERIOR HEIGHT</h2>
-      <p>The interior spaces of letters, like "o" and "a" are notably small, creating a dense, compact appearance that reduces openness.</p>
-    </article>
+  <div class="white-tile tile-1">
+    <div class="tile-new-content"></div>
   </div>
+
+  <div class="white-tile tile-2">
+    <div class="tile-new-content"></div>
+  </div>
+
+  <div class="white-tile tile-3">
+    <div class="tile-new-content"></div>
+  </div>
+
+  <div class="white-tile tile-4">
+    <div class="tile-new-content"></div>
+  </div>
+
+</div>
 
   <!-- Modals for each number -->
   <div id="modal1" class="popup-modal">
@@ -239,6 +222,27 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+const tiles = document.querySelectorAll('.white-tile');
+
+tiles.forEach(tile => {
+  const wrapper = tile.querySelector('.tile-new-content');
+
+  tile.addEventListener('click', () => {
+    const isActive = wrapper.classList.contains('active');
+
+    if (isActive) {
+      // Hide content
+      wrapper.style.opacity = 0;
+      wrapper.style.pointerEvents = 'none';
+      wrapper.classList.remove('active');
+    } else {
+      // Show empty content
+      wrapper.style.opacity = 1;
+      wrapper.style.pointerEvents = 'auto';
+      wrapper.classList.add('active');
+    }
+  });
+});
 
 
 </script>
@@ -246,6 +250,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
 
 
 
